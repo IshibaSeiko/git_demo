@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:git_demo_app/int_helper.dart';
 
 void main() {
   runApp(const MyApp());
@@ -48,20 +49,30 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'You have pushed the button this many times:',
+              '👇現在のカウント👇',
             ),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IconButton(
+                    onPressed: () => setState(() {
+                          _counter = _counter.decrement();
+                        }),
+                    icon: const Icon(Icons.minimize)),
+                IconButton(
+                    onPressed: () => setState(() {
+                          _counter = _counter.increment();
+                        }),
+                    icon: const Icon(Icons.add)),
+              ],
+            )
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
