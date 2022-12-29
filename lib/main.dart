@@ -65,3 +65,8 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+extension IntEx on int {
+  /// デクリメントする
+  int decrement() => this - 1;
+}
